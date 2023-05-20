@@ -31,6 +31,8 @@ namespace lr_4_5
         private DispatcherTimer timer;
         private DateTime orderStartTime;
         private int orderDuration;
+        private DateTime timerStartTime;
+        private int timerDuration = 60;
         public UserAccountClient()
         {
             InitializeComponent();
@@ -64,32 +66,34 @@ namespace lr_4_5
                 }
             }
         }
+
+        private void StartTimer_Click(object sender, RoutedEventArgs e)
+        {
+            timerStartTime = DateTime.Now;
+            StartTimer();
+        }
+
         private void StartTimer()
         {
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1); // Интервал обновления таймера (1 секунда)
+            timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
-
             timer.Start();
         }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
-            TimeSpan remainingTime = orderStartTime.AddMinutes(orderDuration) - DateTime.Now;
+            TimeSpan elapsedTime = DateTime.Now - timerStartTime;
+            TimeSpan remainingTime = TimeSpan.FromSeconds(timerDuration) - elapsedTime;
 
             if (remainingTime.TotalSeconds <= 0)
             {
                 timer.Stop();
+                timerTextBlock.Text = "Timer Completed";
             }
             else
             {
-                if (remainingTime.TotalSeconds > 0)
-                {
-                    remainingTimeTextBlock.Text = remainingTime.ToString(@"hh\:mm\:ss");
-                }
-                else
-                {
-                    remainingTimeTextBlock.Text = "00:00:00";
-                }
+                timerTextBlock.Text = remainingTime.ToString(@"hh\:mm\:ss");
             }
         }
 
@@ -195,5 +199,6 @@ namespace lr_4_5
             review.Show();
         }
 
+        
     }
 }

@@ -75,7 +75,7 @@ namespace lr_4_5
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            UserAccountClient client = new UserAccountClient();
+            AdminAccount client = new AdminAccount(App.Phone_Number);
             client.Show();
             Hide();
         }

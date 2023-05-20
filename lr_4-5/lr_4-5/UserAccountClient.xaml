@@ -57,8 +57,13 @@
                                   HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                                   ShowsPreview="False"></GridSplitter>
                     <Grid Grid.Column="2" Grid.Row="0">
-                        
-                            <Button Content="Offers and promotions" VerticalAlignment="Top"
+                        <Grid>
+                            <StackPanel>
+                                <TextBlock x:Name="timerTextBlock" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <Button Content="Start Timer" Click="StartTimer_Click" HorizontalAlignment="Center" Margin="10" />
+                            </StackPanel>
+                        </Grid>
+                        <Button Content="Offers and promotions" VerticalAlignment="Top"
                                     Click="Offer_Click" Margin="10" Height="50" Width="200"
                                     HorizontalAlignment="Left"/>
                             <Button Content="Create a review" Height="50" HorizontalAlignment="Right"
