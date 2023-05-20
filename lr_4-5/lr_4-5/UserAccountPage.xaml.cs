@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -22,6 +23,8 @@ namespace lr_4_5
     {
         private string phoneNumber;
         private List<UIElement> canvasElements = new List<UIElement>();
+        OrderPage order = new OrderPage();
+        DataTable table = new DataTable();
 
         public UserAccountPage()
         {
@@ -60,9 +63,9 @@ namespace lr_4_5
 
         }
 
-        private void Delete_Account_Click(object sender, RoutedEventArgs e)
+        private void Block_Account_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete user account", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Are you sure?", "Block user account", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
                 using (ApplicationContext db = new ApplicationContext())
@@ -99,6 +102,40 @@ namespace lr_4_5
             OffersAndPromotions offers = new OffersAndPromotions();
             offers.Show();
             Hide();
+        }
+
+        private void DataGridView_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var orders = db.Orders.ToList();
+                var user = db.Users.FirstOrDefault(u => u.Phone_number == phoneNumber);
+
+                if (user != null)
+                {
+                    var userOrders = db.Orders
+                        .Where(o => o.User_id == user.id)
+                        .ToList();
+
+                    table.Columns.Add("Order Id", typeof(int));
+                    table.Columns.Add("User Id", typeof(int));
+                    table.Columns.Add("Date Start", typeof(string));
+                    table.Columns.Add("Time Start", typeof(string));
+                    table.Columns.Add("Order Name", typeof(string));
+                    table.Columns.Add("Computer", typeof(int));
+                    table.Columns.Add("Hours", typeof(int));
+                    table.Columns.Add("Price", typeof(int));
+
+                    foreach (var order in userOrders)
+                    {
+                        table.Rows.Add(order.order_id, order.user_id, order.date_start, order.time_start, order.order_name, order.computer_number, order.hour_quantity, order.total_price);
+                    }
+
+                    dataGridView.ItemsSource = table.DefaultView;
+
+                }
+
+            }
         }
     }
 }

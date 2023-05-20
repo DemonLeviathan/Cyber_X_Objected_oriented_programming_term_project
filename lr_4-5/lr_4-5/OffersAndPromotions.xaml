@@ -7,6 +7,7 @@
         xmlns:input="using:Windows.UI.Xaml.Input"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Icon="{StaticResource AppIcon}"
         Title="MainWindow" Height="700" Width="900">
     <Window.Background>
         <ImageBrush ImageSource="D:\Univer\4-th term\Term Project\lr_4-5\images\img3.jpg"/>
@@ -115,8 +116,14 @@
             </Border>
         </Grid>
         <StackPanel Grid.Row="2">
-            <Button Content="Back to profile" VerticalContentAlignment="Center" FontSize="20" HorizontalAlignment="Left" Width="400" 
-                    Margin="25 0 5 0" Click="Button_Click_Back" VerticalAlignment="Top"/>
+            <StackPanel Grid.Row="2">
+
+                <Button Content="Check reviews" Click="Check_reviews" HorizontalAlignment="Left"
+                    Margin="25 10 0 0" Width="400" FontSize="20" VerticalContentAlignment="Center"/>
+                <Button Content="Back to users profile" Click="Button_Click_Back" 
+                     Width="420" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Margin="5 -33 15 5" FontSize="20"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

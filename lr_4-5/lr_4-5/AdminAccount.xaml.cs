@@ -59,11 +59,6 @@ namespace lr_4_5
             }
         }
 
-        private void Create_Message_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Delete_Account_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure?", "Delete user account", MessageBoxButton.YesNo);

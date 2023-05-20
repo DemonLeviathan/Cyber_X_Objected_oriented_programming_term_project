@@ -19,7 +19,7 @@ namespace lr_4_5
     /// <summary>
     /// Логика взаимодействия для UserAccountClient.xaml
     /// </summary>
-    
+
     public partial class UserAccountClient : Window
     {
         private string phoneNumber;
@@ -74,18 +74,14 @@ namespace lr_4_5
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            // Вычисляем оставшееся время выполнения заказа
             TimeSpan remainingTime = orderStartTime.AddMinutes(orderDuration) - DateTime.Now;
 
             if (remainingTime.TotalSeconds <= 0)
             {
-                // Время выполнения заказа истекло
                 timer.Stop();
-                // Дополнительные действия по завершению заказа
             }
             else
             {
-                // Обновляем отображение оставшегося времени в TextBlock
                 if (remainingTime.TotalSeconds > 0)
                 {
                     remainingTimeTextBlock.Text = remainingTime.ToString(@"hh\:mm\:ss");
@@ -96,6 +92,7 @@ namespace lr_4_5
                 }
             }
         }
+
         private void Canvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (e.NewSize.Width < 120)
@@ -104,7 +101,6 @@ namespace lr_4_5
                 {
                     child.Visibility = Visibility.Collapsed;
                 }
-                //home.Visibility = Visibility.Visible;
             }
             else
             {
@@ -112,7 +108,6 @@ namespace lr_4_5
                 {
                     child.Visibility = Visibility.Visible;
                 }
-                //home.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -193,5 +188,12 @@ namespace lr_4_5
 
             }
         }
+
+        private void Review_click(object sender, RoutedEventArgs e)
+        {
+            ReviewWindow review = new ReviewWindow();
+            review.Show();
+        }
+
     }
 }

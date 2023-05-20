@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:lr_4_5"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Icon="{StaticResource AppIcon}"
         Title="OrderPage" Height="700" Width="400">
     <Grid>
         <Grid.RowDefinitions>

@@ -7,6 +7,7 @@
         xmlns:input="using:Windows.UI.Xaml.Input"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Icon="{StaticResource AppIcon}"
         Title="MainWindow" Height="700" Width="900">
     <Window.Background>
         <ImageBrush ImageSource="D:\Univer\4-th term\Term Project\lr_4-5\images\img1.jpg"/>
@@ -62,8 +63,10 @@
                         <TextBox/>
                         <TextBlock x:Name="statusBlock" />
                     </Canvas>
-                    <Grid Grid.Row="1" Grid.Column="2">
-                        <DataGrid x:Name="dataGridView" AutoGenerateColumns="True" Loaded="DataGridView_Loaded"/>
+                    <Grid Margin="5 0 0 10" Grid.Column="2" Grid.Row="1" Height="430">
+                        <ScrollViewer VerticalScrollBarVisibility="Visible">
+                            <DataGrid x:Name="dataGridView" AutoGenerateColumns="True" Loaded="DataGridView_Loaded"/>
+                        </ScrollViewer>
                     </Grid>
                 </Grid>
 

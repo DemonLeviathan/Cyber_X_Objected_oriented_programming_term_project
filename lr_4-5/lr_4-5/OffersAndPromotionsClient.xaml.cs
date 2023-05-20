@@ -90,9 +90,15 @@ namespace lr_4_5
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            UserAccountClient client = new UserAccountClient();
+            UserAccountClient client = new UserAccountClient(App.Phone_Number);
             client.Show();
             Hide();
+        }
+
+        private void Check_reviews(object sender, RoutedEventArgs e)
+        {
+            ReviewPage review = new ReviewPage();
+            review.Show();
         }
     }
 }

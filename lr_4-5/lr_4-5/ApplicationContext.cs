@@ -11,6 +11,7 @@ namespace lr_4_5
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Review> Reviews { get; set; }
         public ApplicationContext() : base("DefaultConnection") { }
     }
 }

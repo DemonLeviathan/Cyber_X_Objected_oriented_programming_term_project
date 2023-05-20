@@ -7,6 +7,7 @@
         xmlns:input="using:Windows.UI.Xaml.Input"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Icon="{StaticResource AppIcon}"
         Title="MainWindow" Height="700" Width="900">
     <Window.Background>
         <ImageBrush ImageSource="D:\Univer\4-th term\Term Project\lr_4-5\images\img1.jpg"/>
@@ -48,44 +49,20 @@
                             </Grid.RowDefinitions>
                             <Button Grid.Row="1" Content="Log out" VerticalAlignment="Bottom" Margin="5" 
                                 Click="Log_out_Click"/>
-                            <Button  Grid.Row="2" Margin="5" Content="Delete account" VerticalAlignment="Bottom"
-                                Click="Delete_Account_Click"/>
+                            <Button  Grid.Row="2" Margin="5" Content="Block account" VerticalAlignment="Bottom"
+                                Click="Block_Account_Click"/>
                         </Grid>
                     </Grid>
                     <GridSplitter Grid.Column="1" Grid.RowSpan="2" Width="3" 
                                   HorizontalAlignment="Center" VerticalAlignment="Stretch" 
                                   ShowsPreview="False"></GridSplitter>
-                    <Canvas Grid.Column="2" Grid.Row="0" >
-                        
-                        <Button Content="Offers and promotions" VerticalAlignment="Top"
-                                Click="Offer_Click" Margin="10" Height="50" Width="200"
-                                />
-                        <Label/>
-                        <TextBlock x:Name="statusBlock" />
-                    </Canvas>
-                    <Grid Margin="5 0 0 10" Grid.Column="2" Grid.Row="1">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Button Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
-                                Margin="5" Content="Create message to client" 
-                                Click="Create_Message_Click"/>
-                            <Label Grid.Row="0" Grid.ColumnSpan="4" Content="User activity in club" 
-                               HorizontalContentAlignment="Center" FontSize="35"/>
-                        </Grid>
-                        
-                        
+                    
+                    <Grid Margin="5 0 0 10" Grid.Column="2" Grid.RowSpan="2" >
+                        <ScrollViewer VerticalScrollBarVisibility="Visible">
+                            <DataGrid x:Name="dataGridView" AutoGenerateColumns="True" Loaded="DataGridView_Loaded"/>
+                        </ScrollViewer>
                     </Grid>
+
                 </Grid>
 
             </StackPanel>

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:lr_4_5"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Icon="{StaticResource AppIcon}"
         Title="MainWindow" Height="700" Width="900">
     <Window.Background>
         <ImageBrush ImageSource="D:\Univer\4-th term\Term Project\lr_4-5\images\img1.jpg"/>

@@ -79,5 +79,11 @@ namespace lr_4_5
             client.Show();
             Hide();
         }
+
+        private void Check_reviews(object sender, RoutedEventArgs e)
+        {
+            ReviewPage review = new ReviewPage();
+            review.Show();
+        }
     }
 }

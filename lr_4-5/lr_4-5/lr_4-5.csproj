@@ -127,6 +127,13 @@
     <Compile Include="OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Review.cs" />
+    <Compile Include="ReviewPage.xaml.cs">
+      <DependentUpon>ReviewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewWindow.xaml.cs">
+      <DependentUpon>ReviewWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserAccountClient.xaml.cs">
       <DependentUpon>UserAccountClient.xaml</DependentUpon>
@@ -166,6 +173,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReviewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

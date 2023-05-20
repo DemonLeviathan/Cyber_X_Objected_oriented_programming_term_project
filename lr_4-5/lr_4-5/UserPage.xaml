@@ -7,6 +7,7 @@
         xmlns:input="using:Windows.UI.Xaml.Input"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Icon="{StaticResource AppIcon}"
         Title="MainWindow" Height="700" Width="900">
     <Window.Background>
         <ImageBrush ImageSource="D:\Univer\4-th term\Term Project\lr_4-5\images\img1.jpg"/>
@@ -24,7 +25,7 @@
             </Border.Effect>
 
             <StackPanel>
-                <TextBlock Text="Users profiles" FontSize="25" FontWeight="DemiBold" Margin="10 10 0 10" HorizontalAlignment="Center"/>
+                <TextBlock Text="Users accounts" FontSize="25" FontWeight="DemiBold" Margin="10 10 0 10" HorizontalAlignment="Center"/>
 
                 <ListView x:Name="usersList" MinHeight="250" MaxHeight="400" Margin="5" SelectionChanged="UserListSelectionChange">
                     <ListView.ItemTemplate>
